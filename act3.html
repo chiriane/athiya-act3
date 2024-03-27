@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Evaluation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Grade Evaluation</h2>
+    <p>Enter the final grade:</p>
+
+    <input type="number" id="gradeInput">
+    <button onclick="evaluateGrade()">Evaluate</button>
+
+    <div class="output" id="outputArea">
+        <!-- Output will be displayed here -->
+    </div>
+
+    <script>
+        function evaluateGrade() {
+            // Get the grade input value
+            let grade = parseInt(document.getElementById("gradeInput").value);
+            let remarks;
+
+            // Evaluate grade using if-else statements
+            let letterGrade;
+            if (grade >= 95) {
+                letterGrade = 'A';
+                remarks = 'OUTSTANDING';
+            } else if (grade >= 90 && grade < 95) {
+                letterGrade = 'A-';
+                remarks = 'OUTSTANDING';
+            } else if (grade >= 85 && grade < 90) {
+                letterGrade = 'B+';
+                remarks = 'EXCELLENT';
+            } else if (grade >= 80 && grade < 85) {
+                letterGrade = 'B';
+                remarks = 'VERY GOOD';
+            } else if (grade >= 75 && grade < 80) {
+                letterGrade = 'B-';
+                remarks = 'GOOD';
+            } else {
+                letterGrade = 'C';
+                remarks = 'FAILED';
+            }
+
+            // Display the result
+            let outputElement = document.getElementById("outputArea");
+            outputElement.innerHTML = "<p>Final Grade: " + letterGrade + "</p>" +
+                                       "<p>Remarks: " + remarks + "</p>";
+        }
+    </script>
+
+</body>
+</html>
